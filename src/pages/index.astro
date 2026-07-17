@@ -1,17 +1,150 @@
 ---
+import Layout from "../layouts/Layout.astro";
 
+const capabilities = [
+	{
+		index: "01",
+		title: "Brand Strategy",
+		description: "Positioning and narrative systems built to hold up at scale.",
+	},
+	{
+		index: "02",
+		title: "Motion & Film",
+		description: "Direction, cinematography, and edit — brand stories told in movement.",
+	},
+	{
+		index: "03",
+		title: "Identity & Design",
+		description: "Visual systems that stay unmistakable across every surface.",
+	},
+	{
+		index: "04",
+		title: "Campaigns",
+		description: "Launch and always-on content built around a single clear idea.",
+	},
+];
+
+const work = [
+	{ index: "01", client: "Fernweh", category: "Brand Film", year: "2025" },
+	{ index: "02", client: "Halcyon", category: "Campaign", year: "2024" },
+	{ index: "03", client: "Marrow Goods", category: "Identity", year: "2024" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home" transparentNav={true}>
+	<!-- Hero -->
+	<section class="relative h-[100svh] w-full overflow-hidden bg-black">
+		<!--
+			Placeholder for the background reel.
+			Swap /videos/reel.mp4 (+ /videos/reel.webm) for the real cut — see README notes
+			in this file's chat context for full spec. Silent 4K/1080p H.264 loop, 10–20s.
+		-->
+		<video
+			class="absolute inset-0 h-full w-full object-cover"
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="auto"
+			poster="/videos/reel-poster.jpg"
+		>
+			<source src="/videos/reel.webm" type="video/webm" />
+			<source src="/videos/reel.mp4" type="video/mp4" />
+		</video>
+
+		<div class="absolute inset-0 bg-black/40"></div>
+
+		<div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+			<h1 class="font-display text-[clamp(3.5rem,17vw,13rem)] leading-[0.9] font-black tracking-tighter text-white uppercase">
+				Motion
+			</h1>
+			<p class="mt-6 text-xs font-medium tracking-[0.35em] text-white/70 uppercase md:text-sm">
+				We build brands that move people.
+			</p>
+		</div>
+
+		<div class="absolute inset-x-0 bottom-10 z-10 flex flex-col items-center gap-3 text-white/50">
+			<span class="text-[10px] font-medium tracking-[0.3em] uppercase">Scroll</span>
+			<span class="h-10 w-px bg-white/30"></span>
+		</div>
+	</section>
+
+	<!-- Statement -->
+	<section class="mx-auto max-w-5xl px-6 py-32 text-center md:py-44">
+		<p class="font-display text-2xl leading-snug font-bold tracking-tight text-black sm:text-3xl md:text-4xl">
+			Motion is a moving-image brand studio. We build the strategy, the film,
+			and the design system — one team, one clear story, told in motion.
+		</p>
+	</section>
+
+	<!-- Capabilities -->
+	<section class="border-t border-black">
+		<div class="mx-auto max-w-6xl px-6 md:px-10">
+			{
+				capabilities.map((item) => (
+					<div class="group flex flex-col gap-2 border-b border-black py-8 transition-colors duration-300 hover:bg-black md:flex-row md:items-center md:gap-10 md:py-10">
+						<span class="font-display text-sm text-gray-3 transition-colors duration-300 group-hover:text-white/40 md:w-16">
+							{item.index}
+						</span>
+						<h3 class="font-display w-full text-2xl font-bold tracking-tight text-black transition-colors duration-300 group-hover:text-white md:w-72 md:text-3xl">
+							{item.title}
+						</h3>
+						<p class="max-w-md text-sm leading-relaxed text-gray-4 transition-colors duration-300 group-hover:text-white/60">
+							{item.description}
+						</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- Selected work -->
+	<section class="mx-auto max-w-6xl px-6 py-28 md:px-10 md:py-36">
+		<div class="flex items-end justify-between gap-6">
+			<h2 class="font-display text-3xl font-bold tracking-tight text-black md:text-4xl">
+				Selected work
+			</h2>
+			<a
+				href="/portfolio"
+				class="text-xs font-medium tracking-[0.15em] text-black uppercase underline decoration-gray-2 underline-offset-8 transition-colors hover:decoration-black"
+			>
+				View all
+			</a>
+		</div>
+
+		<div class="mt-14">
+			{
+				work.map((item) => (
+					<a
+						href="/portfolio"
+						class="group flex items-center justify-between gap-6 border-t border-black py-7 transition-colors duration-300 hover:bg-black last:border-b"
+					>
+						<div class="flex items-center gap-6 md:gap-10">
+							<span class="font-display hidden text-sm text-gray-3 transition-colors duration-300 group-hover:text-white/40 sm:block">
+								{item.index}
+							</span>
+							<span class="font-display text-xl font-bold tracking-tight text-black transition-colors duration-300 group-hover:text-white md:text-2xl">
+								{item.client}
+							</span>
+						</div>
+						<div class="flex items-center gap-6 text-xs font-medium tracking-[0.15em] text-gray-4 uppercase transition-colors duration-300 group-hover:text-white/60">
+							<span class="hidden sm:inline">{item.category}</span>
+							<span>{item.year}</span>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="border-t border-black bg-black py-32 text-center md:py-44">
+		<p class="text-xs font-medium tracking-[0.3em] text-white/50 uppercase">Start a project</p>
+		<a
+			href="/contact"
+			class="font-display mt-6 inline-block text-4xl font-black tracking-tight text-white uppercase transition-opacity hover:opacity-60 sm:text-6xl md:text-7xl"
+		>
+			Let's talk
+		</a>
+	</section>
+</Layout>

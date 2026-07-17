@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const reasons = [
+	"You have a brand with traction, but the story isn't landing",
+	"You're preparing for a launch, rebrand, or new market entry",
+	"You need a creative partner who can own strategy and production",
+];
+---
+
+<Layout
+	title="Contact"
+	description="Get in touch with Motion to talk through your brand and what it could look like in motion."
+>
+	<section class="mx-auto max-w-6xl px-6 pt-16 pb-24 md:px-10 md:pt-24 md:pb-32">
+		<div class="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
+			<!-- Left: intro + info -->
+			<div>
+				<p class="text-xs font-medium tracking-[0.3em] text-gray-4 uppercase">Contact</p>
+				<h1 class="font-display mt-6 text-4xl leading-[1.05] font-black tracking-tight text-black uppercase sm:text-5xl md:text-6xl">
+					Let's put your brand in motion.
+				</h1>
+				<p class="mt-8 max-w-md text-base leading-relaxed text-gray-4">
+					Tell us a bit about where you are, and we'll follow up within one business
+					day to set up an intro call. No pitch decks, just a real conversation.
+				</p>
+
+				<div class="mt-12 space-y-4">
+					<p class="text-xs font-medium tracking-[0.2em] text-black uppercase">This is a good fit if</p>
+					<ul class="space-y-3">
+						{
+							reasons.map((reason) => (
+								<li class="border-t border-black pt-3 text-sm text-gray-4">{reason}</li>
+							))
+						}
+					</ul>
+				</div>
+
+				<div class="mt-12 space-y-2 border-t border-black pt-8">
+					<p class="text-xs font-medium tracking-[0.2em] text-black uppercase">Prefer email or a call?</p>
+					<a href="mailto:hello@motion.studio" class="font-display block text-2xl font-bold tracking-tight text-black transition-opacity hover:opacity-60">
+						hello@motion.studio
+					</a>
+					<a href="tel:+15551234567" class="block text-sm text-gray-4 transition-colors hover:text-black">
+						+1 (555) 123-4567
+					</a>
+				</div>
+			</div>
+
+			<!-- Right: form -->
+			<div>
+				<form id="contact-form" class="space-y-10">
+					<div class="grid grid-cols-1 gap-10 sm:grid-cols-2">
+						<div>
+							<label for="name" class="text-xs font-medium tracking-[0.15em] text-gray-4 uppercase">Name</label>
+							<input
+								type="text"
+								id="name"
+								name="name"
+								required
+								class="mt-3 w-full border-b border-black bg-transparent py-2 text-base text-black placeholder:text-gray-3 focus:outline-none"
+								placeholder="Jane Doe"
+							/>
+						</div>
+						<div>
+							<label for="company" class="text-xs font-medium tracking-[0.15em] text-gray-4 uppercase">Company</label>
+							<input
+								type="text"
+								id="company"
+								name="company"
+								class="mt-3 w-full border-b border-black bg-transparent py-2 text-base text-black placeholder:text-gray-3 focus:outline-none"
+								placeholder="Brand name"
+							/>
+						</div>
+					</div>
+
+					<div>
+						<label for="email" class="text-xs font-medium tracking-[0.15em] text-gray-4 uppercase">Email</label>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							class="mt-3 w-full border-b border-black bg-transparent py-2 text-base text-black placeholder:text-gray-3 focus:outline-none"
+							placeholder="you@company.com"
+						/>
+					</div>
+
+					<div>
+						<label for="interest" class="text-xs font-medium tracking-[0.15em] text-gray-4 uppercase">Looking for help with</label>
+						<select
+							id="interest"
+							name="interest"
+							class="mt-3 w-full border-b border-black bg-transparent py-2 text-base text-black focus:outline-none"
+						>
+							<option>Brand strategy & identity</option>
+							<option>Motion & film</option>
+							<option>Design systems</option>
+							<option>Campaigns & launches</option>
+							<option>Not sure yet</option>
+						</select>
+					</div>
+
+					<div>
+						<label for="message" class="text-xs font-medium tracking-[0.15em] text-gray-4 uppercase">Tell us about your brand</label>
+						<textarea
+							id="message"
+							name="message"
+							rows="3"
+							required
+							class="mt-3 w-full resize-none border-b border-black bg-transparent py-2 text-base text-black placeholder:text-gray-3 focus:outline-none"
+							placeholder="Where you are today, and what you're hoping to achieve..."
+						></textarea>
+					</div>
+
+					<button
+						type="submit"
+						class="font-display w-full bg-black py-4 text-sm font-bold tracking-[0.15em] text-white uppercase transition-opacity hover:opacity-80"
+					>
+						Send message
+					</button>
+
+					<p id="form-note" class="text-xs text-gray-3">
+						This opens a pre-filled email to hello@motion.studio — nothing is sent automatically.
+					</p>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<script>
+	const form = document.getElementById("contact-form") as HTMLFormElement | null;
+
+	form?.addEventListener("submit", (event) => {
+		event.preventDefault();
+
+		const data = new FormData(form);
+		const name = data.get("name")?.toString() ?? "";
+		const company = data.get("company")?.toString() ?? "";
+		const email = data.get("email")?.toString() ?? "";
+		const interest = data.get("interest")?.toString() ?? "";
+		const message = data.get("message")?.toString() ?? "";
+
+		const subject = `New project inquiry${company ? ` — ${company}` : ""}`;
+		const body = [
+			`Name: ${name}`,
+			company ? `Company: ${company}` : null,
+			`Email: ${email}`,
+			`Interested in: ${interest}`,
+			"",
+			message,
+		]
+			.filter(Boolean)
+			.join("\n");
+
+		window.location.href = `mailto:hello@motion.studio?subject=${encodeURIComponent(
+			subject,
+		)}&body=${encodeURIComponent(body)}`;
+	});
+</script>

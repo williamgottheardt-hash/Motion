@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const services = [
+	{
+		title: "Brand Strategy & Identity",
+		description:
+			"Positioning, naming, and visual identity systems built to hold up as you scale into new markets and channels.",
+		deliverables: ["Brand positioning & messaging", "Visual identity systems", "Naming & verbal identity", "Brand guidelines"],
+	},
+	{
+		title: "Motion & Film",
+		description:
+			"Direction, cinematography, and edit — brand films, campaign spots, and social-native content shot to move people.",
+		deliverables: ["Brand & campaign films", "Social-native video", "Direction & cinematography", "Sound design & edit"],
+	},
+	{
+		title: "Design Systems",
+		description:
+			"Visual systems built for consistency across packaging, digital, motion, and every surface a brand touches.",
+		deliverables: ["Visual identity systems", "Packaging & print", "Web & digital design", "Motion graphics"],
+	},
+	{
+		title: "Campaigns & Launches",
+		description:
+			"Go-to-market planning and always-on content built around a single, unmistakable idea.",
+		deliverables: ["Go-to-market planning", "Launch campaigns", "Content systems", "Partnerships"],
+	},
+];
+
+const caseStudies = [
+	{
+		index: "01",
+		category: "Brand Film",
+		client: "Fernweh",
+		year: "2025",
+		summary:
+			"Fernweh came to us as a regional skincare label with strong products but no clear identity. We rebuilt their brand positioning and shot the film that finally matched their creative quality.",
+		work: ["Brand Strategy", "Film", "Identity"],
+		results: [
+			{ value: "3.8x", label: "Revenue growth in 12 months" },
+			{ value: "12M", label: "Organic film views" },
+		],
+	},
+	{
+		index: "02",
+		category: "Campaign",
+		client: "Halcyon",
+		year: "2024",
+		summary:
+			"Ahead of a 6-property expansion, Halcyon needed a narrative that could flex across cities while staying recognizably Halcyon. We led the rebrand and the multi-market launch film.",
+		work: ["Brand Narrative", "Campaign", "Partnerships"],
+		results: [
+			{ value: "92%", label: "Occupancy in launch quarter" },
+			{ value: "6", label: "Markets launched in one year" },
+		],
+	},
+	{
+		index: "03",
+		category: "Identity",
+		client: "Marrow Goods",
+		year: "2024",
+		summary:
+			"Marrow launched with a single hero product and no brand infrastructure. We built their identity and content engine from zero as they grew into a category leader.",
+		work: ["Identity", "Design System", "Content"],
+		results: [
+			{ value: "$14M", label: "Revenue, up from $0 in 3 years" },
+			{ value: "1,200+", label: "Retail doors nationwide" },
+		],
+	},
+	{
+		index: "04",
+		category: "Rebrand",
+		client: "Northline",
+		year: "2023",
+		summary:
+			"Northline had strong product-market fit but a brand that read as generic. We repositioned them around a sharper category story and rebuilt their visual system.",
+		work: ["Strategy", "Identity", "Film"],
+		results: [
+			{ value: "2.6x", label: "Qualified pipeline growth" },
+			{ value: "5", label: "New enterprise logos" },
+		],
+	},
+];
+---
+
+<Layout
+	title="Work"
+	description="What Motion does, and the brands we've done it for — strategy, film, and design systems."
+>
+	<!-- Hero -->
+	<section class="mx-auto max-w-6xl px-6 pt-16 pb-20 md:px-10 md:pt-24 md:pb-28">
+		<p class="text-xs font-medium tracking-[0.3em] text-gray-4 uppercase">Services & work</p>
+		<h1 class="font-display mt-6 max-w-3xl text-4xl leading-[1.05] font-black tracking-tight text-black uppercase sm:text-5xl md:text-7xl">
+			Everything a brand needs, in one motion.
+		</h1>
+		<p class="mt-8 max-w-xl text-base leading-relaxed text-gray-4">
+			Strategy, film, and design under one roof — so nothing gets lost in
+			translation between agencies. Here's what we do, and what it's produced.
+		</p>
+	</section>
+
+	<!-- Services -->
+	<section class="border-t border-black">
+		<div class="mx-auto max-w-6xl px-6 md:px-10">
+			{
+				services.map((service) => (
+					<div class="grid grid-cols-1 gap-4 border-b border-black py-10 md:grid-cols-3 md:gap-10 md:py-14">
+						<h3 class="font-display text-2xl font-bold tracking-tight text-black md:text-3xl">
+							{service.title}
+						</h3>
+						<p class="text-sm leading-relaxed text-gray-4 md:col-span-1">{service.description}</p>
+						<ul class="space-y-2 md:col-span-1">
+							{service.deliverables.map((item) => (
+								<li class="text-sm text-gray-4">— {item}</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- Case studies -->
+	<section class="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+		<h2 class="font-display text-3xl font-bold tracking-tight text-black md:text-4xl">Selected work</h2>
+
+		<div class="mt-14">
+			{
+				caseStudies.map((study) => (
+					<article class="group grid grid-cols-1 gap-8 border-t border-black py-10 transition-colors duration-300 hover:bg-black last:border-b md:grid-cols-12 md:gap-6 md:py-14">
+						<div class="flex items-start gap-6 md:col-span-4 md:gap-8">
+							<span class="font-display text-sm text-gray-3 transition-colors duration-300 group-hover:text-white/40">
+								{study.index}
+							</span>
+							<div>
+								<p class="text-xs font-medium tracking-[0.2em] text-gray-4 uppercase transition-colors duration-300 group-hover:text-white/50">
+									{study.category} · {study.year}
+								</p>
+								<h3 class="font-display mt-2 text-2xl font-bold tracking-tight text-black transition-colors duration-300 group-hover:text-white">
+									{study.client}
+								</h3>
+							</div>
+						</div>
+
+						<p class="text-sm leading-relaxed text-gray-4 transition-colors duration-300 group-hover:text-white/60 md:col-span-5">
+							{study.summary}
+						</p>
+
+						<div class="flex flex-row gap-8 md:col-span-3 md:flex-col md:gap-4">
+							{study.results.map((result) => (
+								<div>
+									<p class="font-display text-2xl font-bold text-black transition-colors duration-300 group-hover:text-white">
+										{result.value}
+									</p>
+									<p class="mt-0.5 text-xs text-gray-4 transition-colors duration-300 group-hover:text-white/50">
+										{result.label}
+									</p>
+								</div>
+							))}
+						</div>
+					</article>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="border-t border-black bg-black py-28 text-center md:py-36">
+		<p class="text-xs font-medium tracking-[0.3em] text-white/50 uppercase">Start a project</p>
+		<a
+			href="/contact"
+			class="font-display mt-6 inline-block text-4xl font-black tracking-tight text-white uppercase transition-opacity hover:opacity-60 sm:text-6xl md:text-7xl"
+		>
+			Let's talk
+		</a>
+	</section>
+</Layout>

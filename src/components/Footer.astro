@@ -1,0 +1,55 @@
+---
+const year = new Date().getUTCFullYear();
+---
+
+<footer class="bg-black text-white">
+	<div class="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
+		<a href="/" class="font-display block text-4xl font-bold tracking-tight uppercase md:text-6xl">
+			Motion
+		</a>
+		<p class="mt-6 max-w-md text-sm leading-relaxed text-white/50">
+			A moving-image brand studio — strategy, film, and design for brands ready
+			to be seen differently.
+		</p>
+
+		<div class="mt-16 grid grid-cols-2 gap-10 border-t border-white/15 pt-10 md:grid-cols-4">
+			<div>
+				<p class="text-xs font-medium tracking-[0.15em] text-white/40 uppercase">Sitemap</p>
+				<ul class="mt-4 space-y-2.5 text-sm">
+					<li><a href="/" class="text-white/70 transition-colors hover:text-white">Home</a></li>
+					<li><a href="/about" class="text-white/70 transition-colors hover:text-white">About</a></li>
+					<li><a href="/portfolio" class="text-white/70 transition-colors hover:text-white">Work</a></li>
+					<li><a href="/contact" class="text-white/70 transition-colors hover:text-white">Contact</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<p class="text-xs font-medium tracking-[0.15em] text-white/40 uppercase">Contact</p>
+				<ul class="mt-4 space-y-2.5 text-sm">
+					<li>
+						<a href="mailto:hello@motion.studio" class="text-white/70 transition-colors hover:text-white">
+							hello@motion.studio
+						</a>
+					</li>
+					<li>
+						<a href="tel:+15551234567" class="text-white/70 transition-colors hover:text-white">
+							+1 (555) 123-4567
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div>
+				<p class="text-xs font-medium tracking-[0.15em] text-white/40 uppercase">Studio</p>
+				<ul class="mt-4 space-y-2.5 text-sm text-white/70">
+					<li>Remote-first, worldwide</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/40 md:flex-row md:items-center">
+			<p>&copy; {year} Motion. All rights reserved.</p>
+			<p>Brands that move.</p>
+		</div>
+	</div>
+</footer>

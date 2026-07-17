@@ -1,0 +1,113 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const values = [
+	{
+		title: "Story first",
+		description:
+			"We don't shoot a frame or design an asset until the narrative is right. Everything else is downstream of that.",
+	},
+	{
+		title: "One crew, start to finish",
+		description:
+			"Strategy, direction, and post all live under one roof — nothing gets diluted moving between agencies.",
+	},
+	{
+		title: "Made to be watched",
+		description:
+			"We measure work by whether someone stops scrolling, not by whether it technically ran.",
+	},
+	{
+		title: "Built to last",
+		description:
+			"Every system we hand off is designed to keep working long after the credits roll.",
+	},
+];
+
+const process = [
+	{ step: "01", title: "Discover", description: "We study the brand, the category, and the audience worth moving." },
+	{ step: "02", title: "Direct", description: "We shape the narrative, the look, and the shot list." },
+	{ step: "03", title: "Produce", description: "Shoot, edit, design — executed by one embedded crew." },
+	{ step: "04", title: "Release", description: "Launch, measure, and refine the cut that performs." },
+];
+---
+
+<Layout title="About" description="Motion's story, mission, and approach to building brands in motion.">
+	<!-- Hero -->
+	<section class="mx-auto max-w-6xl px-6 pt-16 pb-20 md:px-10 md:pt-24 md:pb-28">
+		<p class="text-xs font-medium tracking-[0.3em] text-gray-4 uppercase">About</p>
+		<h1 class="font-display mt-6 max-w-3xl text-4xl leading-[1.05] font-black tracking-tight text-black uppercase sm:text-5xl md:text-7xl">
+			Most brands don't have a growth problem. They have a clarity problem.
+		</h1>
+		<p class="mt-8 max-w-xl text-base leading-relaxed text-gray-4">
+			Motion was founded by directors and brand builders who were tired of watching
+			good products disappear into noisy feeds. We exist to give ambitious brands
+			the story — and the footage — that makes them impossible to scroll past.
+		</p>
+	</section>
+
+	<!-- Mission -->
+	<section class="border-y border-black">
+		<div class="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-2 md:gap-16 md:px-10 md:py-24">
+			<p class="text-xs font-medium tracking-[0.3em] text-gray-4 uppercase">Our mission</p>
+			<h2 class="font-display max-w-lg text-2xl leading-snug font-bold tracking-tight text-black sm:text-3xl md:text-4xl">
+				Make great brands impossible to ignore.
+			</h2>
+		</div>
+	</section>
+
+	<!-- Values -->
+	<section class="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+		<h2 class="font-display text-3xl font-bold tracking-tight text-black md:text-4xl">
+			How we work
+		</h2>
+
+		<div class="mt-16 grid grid-cols-1 gap-x-12 gap-y-14 sm:grid-cols-2">
+			{
+				values.map((value) => (
+					<div class="border-t border-black pt-6">
+						<h3 class="font-display text-lg font-bold tracking-tight text-black">{value.title}</h3>
+						<p class="mt-3 text-sm leading-relaxed text-gray-4">{value.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- Process -->
+	<section class="border-t border-black bg-black text-white">
+		<div class="mx-auto max-w-6xl px-6 py-24 md:px-10 md:py-32">
+			<h2 class="font-display text-3xl font-bold tracking-tight text-white md:text-4xl">
+				Our process
+			</h2>
+
+			<div class="mt-16 grid grid-cols-1 gap-10 md:grid-cols-4">
+				{
+					process.map((item) => (
+						<div>
+							<p class="font-display text-3xl text-white/25">{item.step}</p>
+							<h3 class="font-display mt-4 text-lg font-bold tracking-tight text-white">{item.title}</h3>
+							<p class="mt-2 text-sm leading-relaxed text-white/50">{item.description}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="mx-auto max-w-6xl px-6 py-28 text-center md:py-36">
+		<h2 class="font-display mx-auto max-w-2xl text-3xl font-bold tracking-tight text-black md:text-4xl">
+			Want to see if we're the right fit?
+		</h2>
+		<p class="mx-auto mt-4 max-w-xl text-sm text-gray-4">
+			We take on a limited number of brands at a time so every partner gets our full attention.
+		</p>
+		<a
+			href="/contact"
+			class="font-display mt-8 inline-block text-lg font-bold tracking-tight text-black uppercase underline decoration-gray-2 underline-offset-8 transition-colors hover:decoration-black"
+		>
+			Get in touch
+		</a>
+	</section>
+</Layout>
