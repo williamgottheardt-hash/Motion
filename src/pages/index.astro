@@ -34,11 +34,6 @@ const work = [
 <Layout title="Home" transparentNav={true}>
 	<!-- Hero -->
 	<section class="relative h-[100svh] w-full overflow-hidden bg-black">
-		<!--
-			Placeholder for the background reel.
-			Swap /videos/reel.mp4 (+ /videos/reel.webm) for the real cut — see README notes
-			in this file's chat context for full spec. Silent 4K/1080p H.264 loop, 10–20s.
-		-->
 		<video
 			class="absolute inset-0 h-full w-full object-cover"
 			autoplay
@@ -46,17 +41,15 @@ const work = [
 			loop
 			playsinline
 			preload="auto"
-			poster="/videos/reel-poster.jpg"
 		>
-			<source src="/videos/reel.webm" type="video/webm" />
-			<source src="/videos/reel.mp4" type="video/mp4" />
+			<source src="/embedded.mp4" type="video/mp4" />
 		</video>
 
 		<div class="absolute inset-0 bg-black/40"></div>
 
 		<div class="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-			<h1 class="font-display text-[clamp(3.5rem,17vw,13rem)] leading-[0.9] font-black tracking-tighter text-white uppercase">
-				Motion
+			<h1 class="font-display text-[clamp(2.5rem,12vw,9rem)] leading-[0.9] font-black tracking-tighter text-white uppercase">
+				Sulivan Studios
 			</h1>
 			<p class="mt-6 text-xs font-medium tracking-[0.35em] text-white/70 uppercase md:text-sm">
 				We build brands that move people.
@@ -72,7 +65,7 @@ const work = [
 	<!-- Statement -->
 	<section class="mx-auto max-w-5xl px-6 py-32 text-center md:py-44">
 		<p class="font-display text-2xl leading-snug font-bold tracking-tight text-black sm:text-3xl md:text-4xl">
-			Motion is a moving-image brand studio. We build the strategy, the film,
+			Sulivan Studios is a moving-image brand studio. We build the strategy, the film,
 			and the design system — one team, one clear story, told in motion.
 		</p>
 	</section>
